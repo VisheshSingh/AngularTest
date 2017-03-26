@@ -12,7 +12,7 @@ import {Component} from '@angular/core';
             <button (click)="runClick()">Click</button><br /><br />
 <!--TWO WAY DATA BINDING-->
             <label>TWO WAY DATA-BINDING: </label>
-            <input type="text" [(ngModel)]="note"/>
+            <input type="text" [(ngModel)]="note" (keyup.enter)="typeSmtg($event)">
             {{note}}`
 })
 
@@ -29,5 +29,9 @@ export class MyComponent{
 
   runClick(){
     console.log("You clicked...");
+  }
+
+  typeSmtg(e){
+    console.log(e.target.value);
   }
 }
