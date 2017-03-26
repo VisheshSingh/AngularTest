@@ -13,18 +13,52 @@ import {Component} from '@angular/core';
 <!--TWO WAY DATA BINDING-->
             <label>TWO WAY DATA-BINDING: </label>
             <input type="text" [(ngModel)]="note" (keyup.enter)="typeSmtg($event)">
-            {{note}}`
+            {{note}}
+            <hr />
+<!--TEMPLATE DIRECTIVES-->
+            <h2 *ngIf="showHeading">Template Directives:</h2>
+            <span [ngSwitch]="name1">
+              <span *ngSwitchCase="'vish'">Vishesh Thakur (Case matches with name)</span>
+              <span *ngSwitchCase="'Dullu'">Vishesh Singh</span>
+              <span *ngSwitchDefault>None of the cases match with name</span>
+            </span>
+            <br />
+            <br />
+            <span [ngSwitch]="name2">
+              <span *ngSwitchCase="'vish'">Vishesh Thakur (Case matches with name)</span>
+              <span *ngSwitchCase="'Dullu'">Vishesh Singh</span>
+              <span *ngSwitchDefault>None of the cases match with name</span>
+            </span>
+            <br />
+            <h3>List of Colors:</h3>
+            <ul>
+              <li *ngFor = "let c of color">{{c}}</li>
+            </ul>
+            <hr />
+            `
 })
 
 export class MyComponent{
+  //Variables for components and data binding
   private title: string;
   private imageLink: string;
   private note: string;
+  //Variables for Template Directives
+  private showHeading: boolean;
+  private name1: string;
+  private name2: string;
+  private color;
 
   constructor(){
+    //Variables for components and data binding
     this.title = 'Hello World!';
     this.imageLink = "http://lorempixel.com/400/300";
     this.note;
+    //Variables for Template Directives
+    this.showHeading = true;
+    this.name1 = "vish";
+    this.name2 = "whatever";
+    this.color = ['Red', 'Blue', 'Yellow', 'Green'];
   }
 
   runClick(){
