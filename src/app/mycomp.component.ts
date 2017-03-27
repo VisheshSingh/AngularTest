@@ -48,9 +48,9 @@ import {FilterPipe} from './filter.pipe';
             <h4>Short Time: {{birthday | date:'shortTime'}}</h4>
 
             <h4>Filtering:</h4>
-            <label>Search Tasks: </label><input type="text" [(ngModel)]="term">
+            <label>Search Tasks: </label><input type="text" [(ngModel)]="term"/>
             <ul>
-              <li *ngFor="let task of tasks | filter:term">{{task.title}}</li>
+              <li *ngFor="let task of tasks | filter:term">{{task.name}}</li>
             </ul>
             <hr />
             `,
@@ -70,7 +70,7 @@ export class MyComponent{
   //Variables for Piping
   private fullName: string;
   private birthday: Date;
-  private tasks: any;
+  private tasks: any[];
 
   constructor(){
     //Variables for components and data binding
@@ -85,7 +85,7 @@ export class MyComponent{
     //Variables for Piping
     this.fullName = "Lionel Messi";
     this.birthday = new Date(1993, 3, 19);
-    this.tasks = [{title:'Wash dishes'},{title:'Paint the wall'},{title:'Cook food'}];
+    this.tasks = [{name:'Wash dishes'},{name:'Paint the wall'},{name:'Cook food'}];
   }
 
   runClick(){
