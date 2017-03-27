@@ -95,4 +95,5 @@ export class MyComponent{
   typeSmtg(e:any){
     console.log(e.target.value);
   }
+
 }
