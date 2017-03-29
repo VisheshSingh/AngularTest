@@ -5,6 +5,7 @@ import { PostService } from './post.service';
 @Component({
   selector: 'posts',
   template: `<h1>POSTS</h1>
+            
             <ul>
               <li *ngFor="let post of posts">
                 <h3>{{ post.title }}</h3>

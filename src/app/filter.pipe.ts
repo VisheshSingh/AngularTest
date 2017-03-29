@@ -8,7 +8,7 @@ export class FilterPipe implements PipeTransform{
     if(term === undefined) return tasks;
     // Else return updated array
     return tasks.filter(function(task:any){
-      return task.name.toLowercase().includes(term.toLowerCase());
+      return task.name.toLowerCase().includes(term.toLowerCase());
     })
   }
 }
